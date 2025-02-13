@@ -111,7 +111,7 @@ To build the CLI tools:
 To run the tool and get an exhaustive list of subcommands and flags:
 
 ```shell
-java -cp target/registration-service-0.1.jar org.signal.registration.cli.RegistrationClient
+java -cp target/registration-service-2.37.4-SNAPSHOT.jar org.signal.registration.cli.RegistrationClient
 ```
 
 …which yields (at the time of writing):
