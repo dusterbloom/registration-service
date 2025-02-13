@@ -77,6 +77,19 @@ For local testing, this service can be run in the `dev` [Micronaut environment](
 - A trivial sender selection strategy that always chooses the last-six-digits "sender"
 - An in-memory session store
 
+Pre-requisites are:
+- java 21 (temurin)
+- maven
+- docker
+- redis
+
+Make sure to include the following file `src/main/resources/application-dev.yml`
+
+To run `redis`, once `docker` is install, just run:
+```bash
+  docker run -p 6379:6379 redis
+```
+
 These components are, obviously, not suitable for production use and are intended only to facilitate local development and testing.
 
 To run the registration service locally with the `dev` environment enabled:
@@ -127,7 +140,7 @@ Commands:
 As a concrete example of interacting with a local registration service running on port 50051, callers may create a registration session with the following command:
 
 ```shell
-java -cp target/registration-service-0.1.jar org.signal.registration.cli.RegistrationClient \
+java -cp target/registration-service-2.37.4-SNAPSHOT.jar  org.signal.registration.cli.RegistrationClient \
   --host=localhost \
   --port=50051 \
   --plaintext \
@@ -143,7 +156,7 @@ Created registration session 2a3d2a2a41ff41fb9ce41687ddcc51a4
 To send an SMS verification code for that session:
 
 ```shell
-java -cp target/registration-service-0.1.jar org.signal.registration.cli.RegistrationClient \
+java -cp target/registration-service-2.37.4-SNAPSHOT.jar  org.signal.registration.cli.RegistrationClient \
   --host=localhost \
   --port=50051 \
   --plaintext \
@@ -153,7 +166,7 @@ java -cp target/registration-service-0.1.jar org.signal.registration.cli.Registr
 …and, finally, to submit a verification code for that session:
 
 ```shell
-java -cp target/registration-service-0.1.jar org.signal.registration.cli.RegistrationClient \
+java -cp target/registration-service-2.37.4-SNAPSHOT.jar  org.signal.registration.cli.RegistrationClient \
   --host=localhost \
   --port=50051 \
   --plaintext \
