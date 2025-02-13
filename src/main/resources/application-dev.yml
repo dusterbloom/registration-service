@@ -1,0 +1,59 @@
+micronaut:
+  application:
+    name: registrationService
+  metrics:
+    enabled: true
+
+redis:
+  uri: redis://localhost:6379
+
+rate-limits:
+  leaky-bucket:
+    send-sms-verification-code-per-number:
+      max-capacity: 100
+      permit-regeneration-period: PT1S
+      min-delay: PT0S
+    send-voice-verification-code-per-number:
+      max-capacity: 100
+      permit-regeneration-period: PT1S
+      min-delay: PT0S
+    check-verification-code-per-number:
+      max-capacity: 100
+      permit-regeneration-period: PT1S
+      min-delay: PT0S
+    session-creation:
+      max-capacity: 100
+      permit-regeneration-period: PT1S
+      min-delay: PT0S
+# micronaut:
+#   application:
+#     name: registrationService
+#   metrics:
+#     enabled: true
+#     binders:
+#       netty:
+#         queues:
+#           enabled: true
+#     export:
+#       datadog:
+#         enabled: false
+
+# rate-limits:
+#   type: allow-all
+#   leaky-bucket:
+#     session-creation:
+#       max-capacity: 100
+#       permit-regeneration-period: PT1S
+#       min-delay: PT0S
+
+# selection:
+#   sms:
+#     fallback-senders:
+#       - last-digits
+#     default-weights:
+#       last-digits: 100
+#   voice:
+#     fallback-senders:
+#       - last-digits
+#     default-weights:
+#       last-digits: 100
