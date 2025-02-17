@@ -25,35 +25,3 @@ rate-limits:
       max-capacity: 100
       permit-regeneration-period: PT1S
       min-delay: PT0S
-# micronaut:
-#   application:
-#     name: registrationService
-#   metrics:
-#     enabled: true
-#     binders:
-#       netty:
-#         queues:
-#           enabled: true
-#     export:
-#       datadog:
-#         enabled: false
-
-# rate-limits:
-#   type: allow-all
-#   leaky-bucket:
-#     session-creation:
-#       max-capacity: 100
-#       permit-regeneration-period: PT1S
-#       min-delay: PT0S
-
-# selection:
-#   sms:
-#     fallback-senders:
-#       - last-digits
-#     default-weights:
-#       last-digits: 100
-#   voice:
-#     fallback-senders:
-#       - last-digits
-#     default-weights:
-#       last-digits: 100
